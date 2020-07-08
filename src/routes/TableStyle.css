@@ -1,0 +1,37 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+#sidebar {
+position: fixed;
+width: 200px;
+height: 100%;
+background: rgb(58, 68, 77);
+}
+/* #sidebar.active{
+  left: 0px;
+} */
+#sidebar ul{
+color: rgb(240, 243, 245);
+list-style: none;
+padding: 15px 10px;
+border-bottom: 1px solid rgba(100,100,100,0.3);
+transition: all 500ms linear;
+}
+#sidebar.active{
+  left: 0px;
+}
+#sidebar.toggle-btn {
+position: absolute;
+left: 230px;
+top: 30px;
+}
+#sidebar .toggle-btn span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: white;
+  margin: 5px 0px;
+}
