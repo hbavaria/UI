@@ -31,7 +31,7 @@ class Getdata extends Component {
         this.searchFun = this.searchFun.bind(this)   
     }
     async componentDidMount(){
-        let response = await fetch("http://localhost:4000/SendPerformanceData/send")
+        let response = await fetch("http://10.223.31.195:4000/SendPerformanceData/send")
         const data = await response.json()
         this.setState({results: data, isLoading: false})
     }
