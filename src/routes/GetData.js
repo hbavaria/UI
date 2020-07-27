@@ -35,11 +35,6 @@ class Getdata extends Component {
     async componentDidMount(){
         let response = await fetch("http://localhost:4000/SendPerformanceData/send")
         const data = await response.json()
-        // for(let i = 0; i < data.length; i++){
-        //     let number  = data[i].Elapsed_Ms
-        //     let newNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        //     data[i].Elapsed_Ms = newNumber
-        // }
         this.setState({results: data, isLoading: false})
     }
     setColor(){
@@ -143,12 +138,10 @@ class Getdata extends Component {
             return <BsArrowUp />
         }
     };
-    async searchFun(event) {
-        // if(event.key === 'ENter'){
+    async searchFun() {
         const value = this.state.value
         let valueArray = []
         valueArray.push(value)
-        //let jsonValue = JSON.parse(JSON.stringify(valueArray))
         let response = await fetch("http://localhost:4000/sendFilteredData/sendFilteredData", {
             method: 'POST',
             headers: {
@@ -331,7 +324,6 @@ class Getdata extends Component {
                 if (column === 'End'){
                     const nameA = new Date(a.End)
                     const nameB = new Date(b.End)
-                    // this.sortCondition(nameA, nameB)
                     if(nameA < nameB)
                         return -1
                     if(nameA > nameB)
@@ -374,7 +366,6 @@ class Getdata extends Component {
                     return a.Elapsed_Ms - b.Elapsed_Ms
                 }
             })
-            //console.log(direction)
             if (direction === 'desc') {
                 sortedUsers.reverse()
             }
